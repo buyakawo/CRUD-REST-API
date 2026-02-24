@@ -4,9 +4,7 @@ dotenv.config();
 import pkg from "pg";
 const { Pool } = pkg;
 
-
-console.log(process.env.DB_PASSWORD);
-
+//connection pool
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -16,6 +14,7 @@ const pool = new Pool({
 
 });
 
+//event listener
 pool.on("connect", () => {
     console.log("Connection pool established with Database");
 });
