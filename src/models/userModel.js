@@ -15,7 +15,7 @@ export const createUserService = async (name, email) => {
     return result.rows[0];
 };
 
-export const updateUserService = async (id, email) => {
+export const updateUserService = async (id, email, name) => {
     const result = await pool.query("UPDATE users SET name=$1, email=$2 WHERE id=$3 RETURNING *", [name, email,id]);
     return result.rows[0];
 };
